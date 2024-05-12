@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:social_media_app/components/my_drawer.dart';
 import 'package:social_media_app/components/my_list_tile.dart';
 import 'package:social_media_app/components/my_post_button.dart';
@@ -36,7 +37,33 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      drawer: MyDrawer(),
+      bottomNavigationBar:
+          GNav(activeColor: Theme.of(context).primaryColor, tabs: [
+        GButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/home_screen');
+          },
+          icon: Icons.home,
+          gap: 8,
+          text: "Home",
+        ),
+        GButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/profile_screen');
+          },
+          icon: Icons.person,
+          gap: 8,
+          text: "Profile",
+        ),
+        GButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/users_screen');
+          },
+          gap: 8,
+          icon: Icons.group,
+          text: "Users",
+        ),
+      ]),
       body: Column(
         children: [
           Padding(
